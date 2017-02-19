@@ -4,8 +4,6 @@ var webpack = require('webpack');
 var PRODUCTION = process.env.NODE_ENV == 'production';
 var DEVELOPMENT = process.env.NODE_ENV == 'development';
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HTMLWebpackPlugin = require('html-webpack-plugin');
-
 console.log(`process.env.NODE_ENV : [${process.env.NODE_ENV}]`);
 console.log("PRODUCTION : " + PRODUCTION);
 
@@ -22,11 +20,7 @@ var entry = PRODUCTION
 var plugins = PRODUCTION
     ? [
             new webpack.optimize.UglifyJsPlugin(),
-            new ExtractTextPlugin('style.[contenthash:10].css'),
-            new HTMLWebpackPlugin({
-                template:'index-template.html',
-                filename : 'index.html'
-            })
+            new ExtractTextPlugin('style.css')
         ]
     : [new webpack.HotModuleReplacementPlugin()];
 
@@ -47,8 +41,8 @@ module.exports = {
     entry : entry,
     plugins : plugins,
     output : {
-        filename : PRODUCTION ? "bundle.[hash:10].min.js" : "bundle.js",
-        publicPath: PRODUCTION ? '/' :'/dist/', 
+        filename : "bundle.js",
+        publicPath: '/dist/', 
         path : path.join(__dirname, "/dist")
     },
     module: {

@@ -10,6 +10,7 @@ var server = new WebpackDevServer(compiler,{
     hot : true,
     publicPath : config.output.publicPath,
     filename : config.output.filename,
+    
     stats : {
         colors : true
     }

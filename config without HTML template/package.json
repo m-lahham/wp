@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && SET NODE_ENV=production&& webpack && webpack-dev-server",
-    "dev": "rimraf dist && SET NODE_ENV=development&& node dev-server.js && webpack-dev-server"
+    "dev": "rimraf dist && SET NODE_ENV=development&& node dev-server.js"
   },
   "author": "",
   "license": "ISC",

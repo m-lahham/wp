@@ -3,6 +3,8 @@ import btn from './button'
 import kitten from './kitten'
 import m from './math';
 import css from './style/global';
+import {button1, button2} from './splitting/buttons';
+
 var messages = require('./messages');
 
 var content = () => {
@@ -11,10 +13,14 @@ var content = () => {
     ${kitten}
     <br>
     ${m.multiply(3,6)}
+    <br>
+    <div id="container"></div>
     `;
 }
 
-$('div#app').html(content);
+
+$('div#app').append(content);
+$('div#app').append(button1()).append(button2());
 
 
 

@@ -43,6 +43,7 @@ var cssLoader = PRODUCTION
                 ? ExtractTextPlugin.extract({loader : 'css-loader?localIdentName=' + cssIdentifier})
                 : ['style-loader','css-loader?localIdentName=' + cssIdentifier];
 module.exports = {
+    externals : {'jquery': 'jQuery'},
     devtool : 'source-map',
     entry : entry,
     plugins : plugins,
